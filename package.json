@@ -1,20 +1,23 @@
 {
-  "name": "newbot",
-  "version": "1.0.0",
-  "description": "This is a read me file",
-  "main": "app.js",
-  "scripts": {
-      "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Alern/newBot.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Alern/newBot/issues"
-  },
-  "homepage": "https://github.com/Alern/newBot#readme"
+    "name": "ntw-hello-bot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/devc-nairobi/ntw-hello-bot.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/devc-nairobi/ntw-hello-bot/issues"
+    },
+    "homepage": "https://github.com/devc-nairobi/ntw-hello-bot#readme",
+    "dependencies": {
+        "messenger-bot": "^2.4.0"
+    }
 }

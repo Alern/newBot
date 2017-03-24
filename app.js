@@ -1,25 +1,22 @@
-var express = require("express");
-var request = require("request");
-var bodyParser = require("body-parser");
-//
-var app = express();
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-app.listen((process.env.PORT || 5000));
+const http = require('http');
+const Bot = require('messenger-bot');
 
-// Server index page
-app.get("/", function (req, res) {
-  res.send("Deployed!");
+let bot = new Bot({
+    token: process.env.PAGE_TOKEN || '',
+    verify: process.env.VERIFY_TOKEN || '',
 });
 
-// Facebook Webhook
-// Used for verification
-app.get("/webhook", function (req, res) {
-  if (req.query["hub.verify_token"] === "this_is_my_token") {
-    console.log("Verified webhook");
-    res.status(200).send(req.query["hub.challenge"]);
-  } else {
-    console.error("Verification failed. The tokens do not match.");
-    res.sendStatus(403);
-  }
+bot.on('error', (err) => {
+    console.log(err.message)
 });
+
+bot.on('message', (payload, reply) => {
+    let text = payload.message.text;
+
+    reply({ text: 'Welcome, I will do my best to handle your emergency' }, function(err) {
+        if (err) console.log(err);
+    });
+});
+
+let port = process.env.PORT || 3000;
+http.createServer(bot.middleware()).listen(port);
