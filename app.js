@@ -12,16 +12,16 @@ bot.on('error', (err) => {
 
 bot.on('message', (payload, reply) => {
     let text = payload.message.text;
-let text2 = "DEafult";
+let text2 = payload.message.text;
     switch(text) {
     case "help":
-        text2 = "Help is on the way";
+       text2 = "Help is on the way";
         break;
     case n:
        text2 = "DEafult";
         break;
     default:
-        text2 = "DEafult";
+       text2 = "DEafult";
 }
     reply({ text: text2 }, function(err) {
         if (err) console.log(err);
